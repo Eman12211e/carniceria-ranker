@@ -1,0 +1,16 @@
+[project]
+id = "carniceria-ranker"
+
+[db]
+port = 54322
+major_version = 15
+
+[api]
+port = 54321
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["carniceria://"]
+
+[auth.sms]
+enabled = true

@@ -1,0 +1,76 @@
+{
+  "common": {
+    "search": "Buscar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "back": "Atrás",
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "retry": "Intentar de nuevo",
+    "noResults": "No se encontraron resultados",
+    "perPound": "/lb",
+    "perKilo": "/kg",
+    "miles": "mi"
+  },
+  "nav": {
+    "search": "Buscar",
+    "map": "Mapa",
+    "favorites": "Favoritos",
+    "profile": "Perfil"
+  },
+  "search": {
+    "placeholder": "Busca un corte... ej. \"Diezmillo\"",
+    "recentSearches": "Búsquedas recientes",
+    "popularCuts": "Cortes populares",
+    "allCuts": "Todos los cortes"
+  },
+  "shop": {
+    "open": "Abierto",
+    "closed": "Cerrado",
+    "verified": "Verificado",
+    "claimed": "Reclamado por dueño",
+    "hours": "Horario",
+    "prices": "Precios",
+    "reviews": "Reseñas",
+    "photos": "Fotos",
+    "directions": "Cómo llegar",
+    "call": "Llamar",
+    "flagPrice": "Reportar precio incorrecto",
+    "noShopsNearby": "No se encontraron tiendas en 5 millas",
+    "noShopsGhostTitle": "¡Sé el primero!",
+    "noShopsGhostBody": "Aún no hay tiendas en tu área. ¿Conoces una carnicería local? Ayúdanos a agregarla."
+  },
+  "score": {
+    "price": "Precio",
+    "quality": "Calidad",
+    "consistency": "Consistencia",
+    "belowAvg": "Debajo del promedio",
+    "aboveAvg": "Arriba del promedio",
+    "stable": "Precios estables",
+    "unstable": "Precios varían"
+  },
+  "onboarding": {
+    "welcome": "Encuentra los mejores precios de carne cerca de ti",
+    "step1Title": "Busca cualquier corte",
+    "step1Body": "Escribe en español o inglés — hablamos los dos.",
+    "step2Title": "Compara tiendas",
+    "step2Body": "Ve precios, calificaciones y tendencias en carnicerías dentro de 5 millas.",
+    "step3Title": "Ahorra dinero",
+    "step3Body": "Precios reales, verificados por la comunidad. No más manejar a ciegas.",
+    "getStarted": "Comenzar",
+    "skip": "Omitir"
+  },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "phone": "Número de Teléfono",
+    "verifyCode": "Ingresa el código de verificación",
+    "continueAsGuest": "Continuar como invitado"
+  },
+  "review": {
+    "writeReview": "Escribir una Reseña",
+    "rating": "Calificación",
+    "comment": "Comentario (opcional)",
+    "submit": "Enviar Reseña"
+  }
+}

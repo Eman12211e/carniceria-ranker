@@ -1,0 +1,76 @@
+{
+  "common": {
+    "search": "Search",
+    "cancel": "Cancel",
+    "save": "Save",
+    "back": "Back",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "noResults": "No results found",
+    "perPound": "/lb",
+    "perKilo": "/kg",
+    "miles": "mi"
+  },
+  "nav": {
+    "search": "Search",
+    "map": "Map",
+    "favorites": "Favorites",
+    "profile": "Profile"
+  },
+  "search": {
+    "placeholder": "Search a cut... e.g. \"Skirt Steak\"",
+    "recentSearches": "Recent Searches",
+    "popularCuts": "Popular Cuts",
+    "allCuts": "All Cuts"
+  },
+  "shop": {
+    "open": "Open",
+    "closed": "Closed",
+    "verified": "Verified",
+    "claimed": "Claimed by owner",
+    "hours": "Hours",
+    "prices": "Prices",
+    "reviews": "Reviews",
+    "photos": "Photos",
+    "directions": "Get Directions",
+    "call": "Call",
+    "flagPrice": "Report inaccurate price",
+    "noShopsNearby": "No shops found within 5 miles",
+    "noShopsGhostTitle": "Be the first!",
+    "noShopsGhostBody": "No shops in your area yet. Know a local carnicería? Help us add it."
+  },
+  "score": {
+    "price": "Price",
+    "quality": "Quality",
+    "consistency": "Consistency",
+    "belowAvg": "Below average",
+    "aboveAvg": "Above average",
+    "stable": "Stable pricing",
+    "unstable": "Prices vary"
+  },
+  "onboarding": {
+    "welcome": "Find the best meat prices near you",
+    "step1Title": "Search any cut",
+    "step1Body": "Type in English or Spanish — we speak both.",
+    "step2Title": "Compare shops",
+    "step2Body": "See prices, ratings, and trends across carnicerías within 5 miles.",
+    "step3Title": "Save money",
+    "step3Body": "Real prices, verified by the community. No more driving blind.",
+    "getStarted": "Get Started",
+    "skip": "Skip"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "phone": "Phone Number",
+    "verifyCode": "Enter verification code",
+    "continueAsGuest": "Continue as Guest"
+  },
+  "review": {
+    "writeReview": "Write a Review",
+    "rating": "Rating",
+    "comment": "Comment (optional)",
+    "submit": "Submit Review"
+  }
+}

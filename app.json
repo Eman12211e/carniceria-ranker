@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Carnicería Ranker",
+    "slug": "carniceria-ranker",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "carniceria",
+    "platforms": ["ios", "android"],
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Carnicería Ranker to use your location to find nearby shops."
+        }
+      ]
+    ]
+  }
+}
