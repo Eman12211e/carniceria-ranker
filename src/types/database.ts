@@ -149,11 +149,40 @@ export interface Database {
           is_outlier: boolean;
         };
       };
+      price_history: {
+        Row: {
+          id: string;
+          shop_id: string;
+          shop_name: string;
+          cut_id: string;
+          cut_name_en: string;
+          cut_name_es: string;
+          unit_id: string;
+          unit: string;
+          price: number;
+          is_outlier: boolean;
+          recorded_at: string;
+          created_at: string;
+          updated_at: string;
+          was_revised: boolean;
+          days_ago: number;
+        };
+      };
     };
     Functions: {
       calculate_consistency_score: {
         Args: { p_shop_id: string; p_cut_id: string; p_unit_id: string };
         Returns: number | null;
+      };
+      upsert_price: {
+        Args: {
+          p_shop_id: string;
+          p_cut_id: string;
+          p_unit_id: string;
+          p_price: number;
+          p_submitted_by?: string | null;
+        };
+        Returns: string;
       };
     };
   };

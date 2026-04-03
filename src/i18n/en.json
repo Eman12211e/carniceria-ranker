@@ -72,5 +72,20 @@
     "rating": "Rating",
     "comment": "Comment (optional)",
     "submit": "Submit Review"
+  },
+  "butcher": {
+    "uploadTitle": "Update Your Prices",
+    "uploadSubtitle": "Add today's prices for your shop. Shoppers see the latest prices first.",
+    "selectCut": "Select a cut",
+    "selectUnit": "Price unit",
+    "enterPrice": "Enter price",
+    "invalidPrice": "Please enter a valid price greater than $0",
+    "duplicateEntry": "This cut and unit is already in your list",
+    "preview": "Prices to submit",
+    "submitPrices": "Submit {{count}} price(s)",
+    "success": "Prices updated successfully!",
+    "partialError": "{{count}} price(s) failed to save. Please try again.",
+    "noShopTitle": "No shop linked",
+    "noShopBody": "You need to claim or register your shop before uploading prices. Go to Profile to get started."
   }
 }

@@ -72,5 +72,20 @@
     "rating": "Calificación",
     "comment": "Comentario (opcional)",
     "submit": "Enviar Reseña"
+  },
+  "butcher": {
+    "uploadTitle": "Actualiza tus Precios",
+    "uploadSubtitle": "Agrega los precios de hoy para tu tienda. Los compradores ven los precios más recientes primero.",
+    "selectCut": "Selecciona un corte",
+    "selectUnit": "Unidad de precio",
+    "enterPrice": "Ingresa el precio",
+    "invalidPrice": "Por favor ingresa un precio válido mayor a $0",
+    "duplicateEntry": "Este corte y unidad ya está en tu lista",
+    "preview": "Precios a enviar",
+    "submitPrices": "Enviar {{count}} precio(s)",
+    "success": "¡Precios actualizados exitosamente!",
+    "partialError": "{{count}} precio(s) no se pudieron guardar. Intenta de nuevo.",
+    "noShopTitle": "Sin tienda vinculada",
+    "noShopBody": "Necesitas reclamar o registrar tu tienda antes de subir precios. Ve a Perfil para comenzar."
   }
 }
