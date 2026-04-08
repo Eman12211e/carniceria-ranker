@@ -4,6 +4,7 @@
 export type UserRole = 'shopper' | 'butcher' | 'admin';
 export type MeatAnimal = 'beef' | 'pork' | 'chicken' | 'goat' | 'lamb' | 'other';
 export type ModerationStatus = 'pending' | 'approved' | 'rejected';
+export type SubscriptionStatus = 'free' | 'trial' | 'pro' | 'expired';
 
 export interface Database {
   public: {
@@ -16,6 +17,10 @@ export interface Database {
           phone: string | null;
           language: 'en' | 'es';
           verified: boolean;
+          subscription_status: SubscriptionStatus;
+          trial_ends_at: string | null;
+          stripe_customer_id: string | null;
+          subscription_expires_at: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -136,6 +141,31 @@ export interface Database {
         Insert: Omit<Database['public']['Tables']['price_flags']['Row'], 'id' | 'created_at'>;
         Update: Partial<Database['public']['Tables']['price_flags']['Row']>;
       };
+      review_responses: {
+        Row: {
+          id: string;
+          review_id: string;
+          responder_id: string;
+          response: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: Omit<Database['public']['Tables']['review_responses']['Row'], 'id' | 'created_at' | 'updated_at'>;
+        Update: Partial<Database['public']['Tables']['review_responses']['Row']>;
+      };
+      deep_link_opens: {
+        Row: {
+          id: string;
+          link_type: 'share_card' | 'price_alert' | 'weekly_email';
+          target_shop_id: string | null;
+          target_cut_id: string | null;
+          referrer_user_id: string | null;
+          opened_by: string | null;
+          opened_at: string;
+        };
+        Insert: Omit<Database['public']['Tables']['deep_link_opens']['Row'], 'id' | 'opened_at'>;
+        Update: Partial<Database['public']['Tables']['deep_link_opens']['Row']>;
+      };
     };
     Views: {
       current_prices: {
@@ -183,6 +213,82 @@ export interface Database {
           p_submitted_by?: string | null;
         };
         Returns: string;
+      };
+      create_price_alert: {
+        Args: {
+          p_cut_id: string;
+          p_unit_id: string;
+          p_target_price: number;
+          p_latitude: number;
+          p_longitude: number;
+          p_radius_meters?: number;
+        };
+        Returns: string;
+      };
+      search_cuts_fuzzy: {
+        Args: { p_query: string; p_limit?: number };
+        Returns: Array<{
+          id: string;
+          animal: MeatAnimal;
+          name_en: string;
+          name_es: string;
+          alt_names: string[];
+          similarity_score: number;
+        }>;
+      };
+      log_event: {
+        Args: { p_event: string; p_properties?: Record<string, unknown> };
+        Returns: void;
+      };
+      check_pro_access: {
+        Args: { p_user_id: string };
+        Returns: boolean;
+      };
+      activate_trial: {
+        Args: { p_user_id: string };
+        Returns: boolean;
+      };
+      activate_pro: {
+        Args: { p_user_id: string; p_stripe_id: string };
+        Returns: boolean;
+      };
+      respond_to_review: {
+        Args: { p_review_id: string; p_response: string };
+        Returns: string;
+      };
+      check_duplicate_shop: {
+        Args: { p_name: string; p_lat: number; p_lon: number };
+        Returns: Array<{
+          shop_id: string;
+          shop_name: string;
+          distance_meters: number;
+          name_similarity: number;
+        }>;
+      };
+      get_weekly_performance: {
+        Args: { p_shop_id: string };
+        Returns: Record<string, unknown>;
+      };
+      get_expansion_readiness: {
+        Args: { p_city?: string };
+        Returns: Record<string, unknown>;
+      };
+      log_deep_link_open: {
+        Args: {
+          p_link_type: string;
+          p_shop_id?: string;
+          p_cut_id?: string;
+          p_referrer_id?: string;
+        };
+        Returns: void;
+      };
+      check_feature_access: {
+        Args: { p_user_id: string; p_feature: string };
+        Returns: boolean;
+      };
+      get_system_health: {
+        Args: Record<string, never>;
+        Returns: Record<string, unknown>;
       };
     };
   };

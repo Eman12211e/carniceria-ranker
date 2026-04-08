@@ -2,10 +2,47 @@
   "expo": {
     "name": "Carnicería Ranker",
     "slug": "carniceria-ranker",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "scheme": "carniceria",
-    "platforms": ["ios", "android"],
+    "platforms": ["ios", "android", "web"],
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0f0f23"
+    },
+    "ios": {
+      "bundleIdentifier": "com.carniceriaranker.app",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Allow Carnicería Ranker to use your location to find nearby shops.",
+        "CFBundleLocalizations": ["en", "es"],
+        "CFBundleDevelopmentRegion": "en"
+      }
+    },
+    "android": {
+      "package": "com.carniceriaranker.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0f0f23"
+      },
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "name": "Carnicería Ranker",
+      "shortName": "Carnicería",
+      "description": "Find the best meat prices at local carnicerías near you.",
+      "lang": "en",
+      "themeColor": "#0f0f23",
+      "backgroundColor": "#0f0f23"
+    },
+    "locales": {
+      "es": "./src/i18n/es.json"
+    },
     "plugins": [
       [
         "expo-location",
@@ -13,6 +50,11 @@
           "locationAlwaysAndWhenInUsePermission": "Allow Carnicería Ranker to use your location to find nearby shops."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
+    }
   }
 }

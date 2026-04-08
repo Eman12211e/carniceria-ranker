@@ -9,14 +9,19 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/lib/supabase';
+import { trackEvent } from '@/lib/analytics';
 import type { Database } from '@/types/database';
 
 type MeatCut = Database['public']['Tables']['meat_cuts']['Row'];
 
+interface FuzzyResult extends MeatCut {
+  similarity_score?: number;
+}
+
 export default function SearchScreen() {
   const { t, i18n } = useTranslation();
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<MeatCut[]>([]);
+  const [results, setResults] = useState<FuzzyResult[]>([]);
   const [loading, setLoading] = useState(false);
 
   const isSpanish = i18n.language === 'es';
@@ -29,15 +34,17 @@ export default function SearchScreen() {
     }
 
     setLoading(true);
-    // Search both English and Spanish names + alt_names
-    const { data } = await supabase
-      .from('meat_cuts')
-      .select('*')
-      .or(`name_en.ilike.%${text}%,name_es.ilike.%${text}%`)
-      .limit(20);
 
-    setResults(data ?? []);
+    // Use fuzzy search for better typo tolerance (e.g. "diezmilo" -> "Diezmillo")
+    const { data } = await supabase.rpc('search_cuts_fuzzy', {
+      p_query: text,
+      p_limit: 15,
+    });
+
+    setResults((data ?? []) as FuzzyResult[]);
     setLoading(false);
+
+    trackEvent('cut_search', { query: text, result_count: (data ?? []).length });
   }
 
   return (

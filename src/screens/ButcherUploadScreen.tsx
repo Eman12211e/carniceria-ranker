@@ -113,9 +113,22 @@ export default function ButcherUploadScreen() {
     if (entries.length === 0) return;
     setSubmitting(true);
 
-    // TODO: Get actual shop_id from butcher's claimed shop
-    // For now this is a scaffold — will be wired to auth + shop claim in Week 3
-    const shopId = null;
+    // Get butcher's claimed shop from their profile
+    const user = (await supabase.auth.getUser()).data.user;
+    if (!user) {
+      Alert.alert(t('auth.signIn'));
+      setSubmitting(false);
+      return;
+    }
+
+    const { data: shopData } = await supabase
+      .from('shops')
+      .select('id')
+      .eq('owner_id', user.id)
+      .eq('claimed', true)
+      .single();
+
+    const shopId = shopData?.id ?? null;
 
     if (!shopId) {
       Alert.alert(
